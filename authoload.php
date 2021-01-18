@@ -32,3 +32,5 @@ function getPatch($type, $class)
 }
 $str = getPatch('c', 'App');
 require_once $str;
+$str2 = getPatch('m', 'DB');
+require_once $str2;

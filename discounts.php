@@ -1,6 +1,7 @@
 <?php
 require_once "authoload.php";
 use Core\Controllers\App;
+use Core\Models\DB;
 /**
  * Plugin Name: Discounts
  * Description: Discounts desc
@@ -17,4 +18,19 @@ use Core\Controllers\App;
  *
  * Network:    true
  */
-App::start();
+function start(){
+    App::start();
+}
+function init(){
+    register_activation_hook(__FILE__,'start');
+}
+add_action( 'plugins_loaded', 'init' );
+$a = new App();
+$a->getDiscount("");
+//add_action( 'plugins_loaded', function (){
+//    $a = new App();
+//    print_r($a->getPercent());
+//} );
+
+
+
